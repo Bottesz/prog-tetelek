@@ -1,3 +1,7 @@
-import osszegzes
+#import osszegzes
+import eldontes
 
-osszegzes.osszegzes_tetel()
+#osszegzes.osszegzes_tetel()
+eldontes.tetel()
+
+
