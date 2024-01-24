@@ -1,40 +1,45 @@
 from Cipo import Cipo
-import math
+def peldanyok_listaban():
+    peldany1 = Cipo("Nike",42)
+    peldany2 = Cipo("Adidas",41)
+    peldany3 =  Cipo("Adidas",45)
 
-peldany1 = Cipo("Nike",42)
-peldany2 = Cipo("Adidas",41)
-peldany3 =  Cipo("Adidas",45)
+    cipok = []
+    cipok.append(peldany1)
+    cipok.append(peldany2)
+    cipok.append(peldany3)
+    return cipok
 
-cipok = []
-cipok.append(peldany1)
-cipok.append(peldany2)
-cipok.append(peldany3)
-for i in range(0,len(cipok),1):
-    nev = cipok[i].nev
-    meret = cipok[i].meret
-    print(f"{nev}  ({meret})")
 
-def cipo_atlag():                               #összegzés tétele
+
+
+
+def lista_kiir(lista):
+    for i in range(0,len(lista),1):
+        nev = lista[i].nev
+        meret = lista[i].meret
+        print(f"{nev}  ({meret})")
+
+#Ez a rövid verzió:
+"""        
+lista_kiir(peldanyok_listaban())
+"""
+cipok_lista = peldanyok_listaban()
+lista_kiir(cipok_lista)
+
+
+def osszegzes_tetele(cipok):                               #összegzés tétele
     ossz:int = 0
     for i in range(0,len(cipok),1):
         ossz += cipok[i].meret
     print(round(ossz/len(cipok), 3))
 
-cipo_atlag()
-
-def nagyobb42adidas():
-    db: int = 0
-    for i in range(0,len(cipok), 1):
-        if cipok[i].meret < 42:
-            db += 1
-    print(db)
-
-nagyobb42adidas()
+osszegzes_tetele(cipok_lista)
 
 
 
 
-def nagyobb42():                                #eldöntés tétele
+def eldontes_tetel(cipok):                                #eldöntés tétele
     print("Van-e 42-nél nagyobb Adidas: ")
     van = False
     for i in range(0,len(cipok),1):
@@ -48,7 +53,7 @@ def nagyobb42():                                #eldöntés tétele
 
 
 # Melyik a legnagyobb cipő                      #maximum kiválasztás tétele
-def legnagyobb_marka_cipo():
+def maximum_kivakasztas_tetel(cipok):
     print("Milyen márkájú a legnagyobb cipő: ", end="")
     legnagyobb_helye:int = 0
     
@@ -60,16 +65,11 @@ def legnagyobb_marka_cipo():
 
 
     #hány db adidas cipő van                                                #megszámlálás tétele
-def hany_db_adidas():          
+def megszamlalas_tetel(cipo):          
     szamlalo:int = 0 
     print(f"\tHány olyan cipő van ami adidas:")
     for i in range(0,len(cipok),1):
         if cipok[i].nev == "Adidas":
             szamlalo += 1
     print(f"{szamlalo} db")
-    
-    
-    
-
-
     
